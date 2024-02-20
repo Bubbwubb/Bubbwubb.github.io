@@ -35,7 +35,7 @@ function setup() {
 function draw() {
   background("white");
   if (state === 0) {
-    text("Time For Some Bug Squishing!", 325, 250);
+    text("Bug Squish Game!", 325, 250);
     text('Press "Space" to start!', 300, 300);
   }
   if (state === 1) {
@@ -108,7 +108,7 @@ class Bug {
           0,
           this.sw,
           this.sh,
-          280,
+          224,
           0,
           this.sw,
           this.sh
@@ -120,7 +120,7 @@ class Bug {
           0,
           this.sw,
           this.sh,
-          240,
+          192,
           0,
           this.sw,
           this.sh
