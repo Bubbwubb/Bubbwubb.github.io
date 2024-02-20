@@ -8,7 +8,7 @@ let bugs = [];
 let test;
 
 function preload() {
-  sheet = loadImage("Buggy.png");
+  sheet = loadImage("Bug1.png");
 }
 
 function setup() {
@@ -95,8 +95,8 @@ class Bug {
     push();
     translate(this.dx, this.dy);
     scale(this.xDir, 1);
-   // if (this.move <= -1) rotate(-90);
-    //if (this.move >= 1) rotate(90);
+    if (this.move <= -1) rotate(-90);
+    if (this.move >= 1) rotate(90);
     if (this.dead === true) {
       if (frameCount % 60 === 0) {
         this.counter++;
@@ -108,7 +108,7 @@ class Bug {
           0,
           this.sw,
           this.sh,
-          224,
+          280,
           0,
           this.sw,
           this.sh
@@ -120,7 +120,7 @@ class Bug {
           0,
           this.sw,
           this.sh,
-          192,
+          240,
           0,
           this.sw,
           this.sh
