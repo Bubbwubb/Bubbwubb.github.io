@@ -95,8 +95,8 @@ class Bug {
     push();
     translate(this.dx, this.dy);
     scale(this.xDir, 1);
-    if (this.move <= -1) rotate(-90);
-    if (this.move >= 1) rotate(90);
+   // if (this.move <= -1) rotate(-90);
+    //if (this.move >= 1) rotate(90);
     if (this.dead === true) {
       if (frameCount % 60 === 0) {
         this.counter++;
