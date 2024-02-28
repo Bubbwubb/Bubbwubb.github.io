@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(246, 240, 240);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+  }
+  
+  nav {
+    margin-bottom: 5vh;
+    width: 100vw;
+  }
+  
+  ul {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    gap: 1vw;
+    justify-content: space-evenly;
+  }
+  
+  a {
+    color: rgb(38, 0, 255);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    background-color: rgb(88, 101, 114);
+  }
