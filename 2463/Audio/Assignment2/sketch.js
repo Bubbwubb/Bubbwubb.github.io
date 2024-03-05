@@ -48,7 +48,7 @@ let notes = {
   l: "D5",
 };
 
-let kbKeys = ["Keys", "A", "S", "D", "F", "G", "H", "J", "K", "L"];
+let kbKeys = ["Keys", "Q", "W", "E", "R", "T", "Y", "U", "I", "O"];
 let nList = ["Notes", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5"];
 function keyPressed() {
   mostRecentKeyPressed = key;
@@ -64,7 +64,7 @@ function keyReleased() {
 
 let mostRecentKeyPressed = "";
 function draw() {
-  background(420, 0, 69);
+  background(4, 20, 69);
   createHeading("Assignment 2");
 
   let i = 0;
@@ -106,7 +106,7 @@ function createHeading(input) {
 
 function r(i, fc, y) {
   fill(fc);
-  rect(6 + 50 * i, y, 9, 420);
+  rect(200 + 50 * i, y, 50, 50);
 }
 
 function t(e, j, y) {
