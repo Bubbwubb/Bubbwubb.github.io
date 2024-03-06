@@ -48,7 +48,7 @@ let notes = {
   l: "D5",
 };
 
-let kbKeys = ["Keys", "Q", "W", "E", "R", "T", "Y", "U", "I", "O"];
+let kbKeys = ["Keys", "A", "S", "D", "F", "G", "H", "J", "K", "L"];
 let nList = ["Notes", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5"];
 function keyPressed() {
   mostRecentKeyPressed = key;
@@ -64,7 +64,7 @@ function keyReleased() {
 
 let mostRecentKeyPressed = "";
 function draw() {
-  background(4, 20, 69);
+  background(4,20,69);
   createHeading("Assignment 2");
 
   let i = 0;
@@ -96,7 +96,7 @@ function createHeading(input) {
   fill("white");
   text(input, 450, 50);
   text(
-    "Press one of the keys below to hear the note, adjust the sliders to add an effect.",
+    "Hit one of the labeled keys to hear the note, move a slider to add effects.",
     450,
     80
   );
