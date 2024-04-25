@@ -11,6 +11,7 @@ let fx = new Tone.Players({
   miss: "Miss.mp3",
   lose: "Lose.mp3",
   win: "Win.mp3",
+  
 });
 fx.player("bg").volume.value = -15;
 fx.toDestination();
