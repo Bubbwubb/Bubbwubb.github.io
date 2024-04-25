@@ -1,4 +1,4 @@
-let score;
+let score = 0;
 let timer;
 let state = 0;
 let speed = 1;
