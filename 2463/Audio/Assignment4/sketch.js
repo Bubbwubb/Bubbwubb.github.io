@@ -11,7 +11,6 @@ let fx = new Tone.Players({
   miss: "Miss.mp3",
   lose: "Lose.mp3",
   win: "Win.mp3",
-  
 });
 fx.player("bg").volume.value = -15;
 fx.toDestination();
@@ -46,7 +45,7 @@ function setup() {
 function draw() {
   background("white");
   if (state === 0) {
-    text("Bug Squish Game!", 325, 250);
+    text("Bug Squish now with controller", 325, 250);
     text('Press "Space" to start!', 300, 300);
   } else if (state === 1) {
     timer.draw();
