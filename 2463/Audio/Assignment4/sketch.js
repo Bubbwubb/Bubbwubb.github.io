@@ -89,7 +89,7 @@ function draw() {
   circle(circleX, circleY, 5);
   fill("black");
   if (state === 0) {
-    text("Bug Squish Game!", 325, 250);
+    text("Time for squishing, now with controller!", 325, 250);
     text('Press "Space" to start!', 300, 300);
     if (sw === 1) {
       fx.player("bg").start();
@@ -129,7 +129,7 @@ function trySquish() {
     ) {
       e.move = 0;
       e.dead = true;
-      //fx.player("Squish").start();
+      
       score.incScore(1);
       speed++;
       let r1 = random(0, 100);
