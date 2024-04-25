@@ -16,34 +16,12 @@ fx.player("bg").volume.value = -15;
 fx.toDestination();
 let test;
 
-let port;
-let joyX = 0,
-  joyY = 0,
-  sw = 0;
-let connectButton;
-let circleX, circleY;
-let circleSpeed = 3;
-
-function connect() {
-  if (!port.opened()) {
-    port.open("Arduino", 9600);
-  } else {
-    port.close();
-  }
-}
-
 function preload() {
   sheet = loadImage("Bug1.png");
 }
 
 function setup() {
-  port = createSerial();
   createCanvas(800, 500);
-  circleX = width / 2;
-  circleY = height / 2;
-  connectButton = createButton("Connect");
-  connectButton.mousePressed(connect);
-
   imageMode(CENTER);
   angleMode(DEGREES);
   timer = new Timer("Time remaining:", 2, 25);
@@ -66,36 +44,9 @@ function setup() {
 
 function draw() {
   background("white");
-  let str = port.readUntil("\n");
-  let values = str.split(",");
-  if (values.length > 2) {
-    joyX = values[0];
-    joyY = values[1];
-    sw = Number(values[2]);
-
-    if (joyX > 0) {
-      circleX += circleSpeed;
-    } else if (joyX < 0) {
-      circleX -= circleSpeed;
-    }
-
-    if (joyY > 0) {
-      circleY += circleSpeed;
-    } else if (joyY < 0) {
-      circleY -= circleSpeed;
-    }
-  }
-  fill("red");
-  circle(circleX, circleY, 5);
-  fill("black");
   if (state === 0) {
-    text("Time for squishing, now with controller!", 325, 250);
+    text("Bug Squish Game!", 325, 250);
     text('Press "Space" to start!', 300, 300);
-    if (sw === 1) {
-      fx.player("bg").start();
-      fx.player("bg").loop = true;
-      state = 1;
-    }
   } else if (state === 1) {
     timer.draw();
     timer.start();
@@ -107,29 +58,35 @@ function draw() {
       timer.stop(score.getScore());
       state += 1;
     }
-    if (sw === 1) {
-      trySquish();
-    }
   } else if (state === 2) {
     text("Game Over!", 350, 250);
     text(`Your score was ${score.getScore()}`, 325, 300);
+  }let score;
+l
+}
+
+function keyPressed() {
+  if (keyCode === 32 && state === 0) {
+    fx.player("bg").start();
+    fx.player("bg").loop = true;
+    state += 1;
   }
 }
 
-function trySquish() {
+function mousePressed() {
   let hitBug = false;
   bugs.forEach((e) => {
     let bugArea = 30;
     if (
-      e.dx - bugArea < circleX &&
-      circleX < e.dx + bugArea &&
-      e.dy - bugArea < circleY &&
-      circleY < e.dy + bugArea &&
+      e.dx - bugArea < mouseX &&
+      mouseX < e.dx + bugArea &&
+      e.dy - bugArea < mouseY &&
+      mouseY < e.dy + bugArea &&
       !e.dead
     ) {
       e.move = 0;
       e.dead = true;
-      
+      fx.player("Squish").start();
       score.incScore(1);
       speed++;
       let r1 = random(0, 100);
@@ -144,12 +101,10 @@ function trySquish() {
       bugs.push(new Bug(sheet, 40, 40, r2, random(26, 490), 6, r3));
       console.log("hit");
       hitBug = true;
-
-      let msg = `5566\n`;
-      port.write(msg);
     }
   });
   if (!hitBug) {
+    fx.player("miss").start();
   }
 }
 
