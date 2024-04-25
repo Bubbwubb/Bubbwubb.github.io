@@ -148,7 +148,7 @@ class Bug {
           0,
           this.sw,
           this.sh,
-          280,
+          224,
           0,
           this.sw,
           this.sh
@@ -160,7 +160,7 @@ class Bug {
           0,
           this.sw,
           this.sh,
-          240,
+          192,
           0,
           this.sw,
           this.sh
