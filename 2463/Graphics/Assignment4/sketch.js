@@ -35,7 +35,7 @@ function setup() {
 function draw() {
   background("white");
   if (state === 0) {
-    text("Bug Squish Game!", 325, 250);
+    text("Bug Squish Game now with controller", 325, 250);
     text('Press "Space" to start!', 300, 300);
   }
   if (state === 1) {

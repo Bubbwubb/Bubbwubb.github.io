@@ -62,7 +62,7 @@ function draw() {
     text("Game Over!", 350, 250);
     text(`Your score was ${score.getScore()}`, 325, 300);
   }let score;
-l
+
 }
 
 function keyPressed() {
