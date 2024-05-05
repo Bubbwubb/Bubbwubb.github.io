@@ -6,20 +6,6 @@ var debris = [];
 var energy = [];
 var gameLevel = 0;
 var message;
-let pew;
-
-
-function preload() {
-  pew = new Tone.Player("Blast.mp3").toDestination();
-  bg = new Tone.Player("Background.mp3").loop(true).toDestination();
-
-}
-
-function triggerLaserSound() {
-  if (key == ' ') {
-  pew.start();
-  }
-}
 
 
 function setup() {
@@ -27,8 +13,6 @@ function setup() {
   textFont("Courier");
   ship = new Ship();
   initialize("Time for some Asteroid blasting!", initastnum);
- 
-  
 }
 
 function draw() {
@@ -68,14 +52,12 @@ function draw() {
   } else {
     console.log("Game Over");
     message = "Game Over, Good Try!";
-    fx.player("bg").stop();
     
   };
 
   if (rock.length == 0) {
     astnum += 3;
     initialize("You Win! Next Level!", astnum);
-    fx.player("win").start();
   }
 
   for (var i = rock.length - 1; i >= 0; i--) {
@@ -181,6 +163,7 @@ Ship.prototype.interface = function() {
   fill(255);
   noStroke();
   text("Score = " + this.score, 50, 50);
+  //text("Shield = " + constrain(round(ship.shieldLevel), 0, 100), 50, 65);
   if (this.shieldLevel >= this.shieldMax) {
     text("Shield = Max!", 50, 65);
   } else {
