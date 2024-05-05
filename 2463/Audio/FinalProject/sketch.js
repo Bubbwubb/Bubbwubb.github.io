@@ -10,16 +10,18 @@ let fx = new Tone.Players({
   bg: "Background.mp3",
   lose: "Lose.mp3",
   win: "Win.mp3",
+  pew: "Blast.mp3",
 });
 fx.player("bg").volume.value = -15;
+fx.player("bg").start();
+  fx.player("bg").loop = true;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont("Courier");
   ship = new Ship();
   initialize("Time for some Asteroid blasting!", initastnum);
-  fx.player("bg").start();
-  fx.player("bg").loop = true;
+  
 }
 
 function draw() {
@@ -131,6 +133,7 @@ function draw() {
 
   function keyPressed() {
     if (key == ' ') {
+      fx.player("pew").start();
       ship.lasers.push(new Laser(ship.pos, ship.heading));
     } else if (keyCode == RIGHT_ARROW) {
       ship.setRotation(0.1);
@@ -172,7 +175,6 @@ Ship.prototype.interface = function() {
   fill(255);
   noStroke();
   text("Score = " + this.score, 50, 50);
-  //text("Shield = " + constrain(round(ship.shieldLevel), 0, 100), 50, 65);
   if (this.shieldLevel >= this.shieldMax) {
     text("Shield = Max!", 50, 65);
   } else {
@@ -327,7 +329,7 @@ function Laser(spos, angle) {
   this.r = 1;
 }
 
-// collision detection for rock and other eventual additional stuff
+
 Laser.prototype.hits = function(target) {
   var d = dist(this.pos.x, this.pos.y, target.pos.x, target.pos.y);
   if(d < this.r + target.r){
