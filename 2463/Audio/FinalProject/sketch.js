@@ -89,8 +89,6 @@ function draw() {
 
   
   ship.interface();
-  fx.player("bg").start();
-  fx.player("bg").loop = true;
   }
 
 
