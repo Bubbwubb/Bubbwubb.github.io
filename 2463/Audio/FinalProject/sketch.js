@@ -27,7 +27,7 @@ function setup() {
   textFont("Courier");
   ship = new Ship();
   initialize("Time for some Asteroid blasting!", initastnum);
-  bg.start();
+ 
   
 }
 
