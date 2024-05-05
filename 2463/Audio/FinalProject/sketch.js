@@ -6,13 +6,20 @@ var debris = [];
 var energy = [];
 var gameLevel = 0;
 var message;
-
+let fx = new Tone.Players({
+  bg: "Background.mp3",
+  lose: "Lose.mp3",
+  win: "Win.mp3",
+});
+fx.player("bg").volume.value = -15;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont("Courier");
   ship = new Ship();
   initialize("Time for some Asteroid blasting!", initastnum);
+  fx.player("bg").start();
+  fx.player("bg").loop = true;
 }
 
 function draw() {
@@ -52,12 +59,14 @@ function draw() {
   } else {
     console.log("Game Over");
     message = "Game Over, Good Try!";
+    fx.player("bg").stop();
     
   };
 
   if (rock.length == 0) {
     astnum += 3;
     initialize("You Win! Next Level!", astnum);
+    fx.player("win").start();
   }
 
   for (var i = rock.length - 1; i >= 0; i--) {
