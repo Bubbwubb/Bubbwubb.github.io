@@ -6,13 +6,20 @@ var debris = [];
 var energy = [];
 var gameLevel = 0;
 var message;
-let fx = new Tone.Players({
-  bg: "Background.mp3",
-  lose: "Lose.mp3",
-  win: "Win.mp3",
-  pew: "Blast.mp3",
-});
-fx.player("bg").volume.value = -15;
+let pew;
+
+
+function preload() {
+  pew = new Tone.Player("Blast.mp3").toDestination();
+  bg = new Tone.Player("Background.mp3").loop(true).toDestination();
+
+}
+
+function triggerLaserSound() {
+  if (key == ' ') {
+  pew.start();
+  }
+}
 
 
 function setup() {
@@ -20,6 +27,7 @@ function setup() {
   textFont("Courier");
   ship = new Ship();
   initialize("Time for some Asteroid blasting!", initastnum);
+  bg.start();
   
 }
 
