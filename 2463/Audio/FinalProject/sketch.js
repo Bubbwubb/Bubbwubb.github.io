@@ -13,8 +13,7 @@ let fx = new Tone.Players({
   pew: "Blast.mp3",
 });
 fx.player("bg").volume.value = -15;
-//fx.player("bg").start();
-  //fx.player("bg").loop = true;
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -90,6 +89,8 @@ function draw() {
 
   
   ship.interface();
+  fx.player("bg").start();
+  fx.player("bg").loop = true;
   }
 
 
@@ -134,7 +135,6 @@ function draw() {
   function keyPressed() {
     if (key == ' ') {
       ship.lasers.push(new Laser(ship.pos, ship.heading));
-      fx.player("pew").start();
     } else if (keyCode == RIGHT_ARROW) {
       ship.setRotation(0.1);
     } else if (keyCode == LEFT_ARROW) {
