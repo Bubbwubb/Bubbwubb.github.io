@@ -13,8 +13,8 @@ let fx = new Tone.Players({
   pew: "Blast.mp3",
 });
 fx.player("bg").volume.value = -15;
-fx.player("bg").start();
-  fx.player("bg").loop = true;
+//fx.player("bg").start();
+  //fx.player("bg").loop = true;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
