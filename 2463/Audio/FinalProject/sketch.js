@@ -163,7 +163,6 @@ Ship.prototype.interface = function() {
   fill(255);
   noStroke();
   text("Score = " + this.score, 50, 50);
-  //text("Shield = " + constrain(round(ship.shieldLevel), 0, 100), 50, 65);
   if (this.shieldLevel >= this.shieldMax) {
     text("Shield = Max!", 50, 65);
   } else {
